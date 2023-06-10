@@ -13,10 +13,10 @@
 
   <div class="character-container">
     <div class="character">
-      <img src="img/persona1/personaGiraffa.png" alt="Personagem 1">
+      <img src="img/persona1/persona.png" alt="Personagem 1">
       <h3>Giraffinha </h3>
      
-      <input type="radio" name="persona" id="persoan1" value="persona1">
+      <input type="radio" name="persona" id="persona1" value="persona1">
     </div>
 
     
@@ -24,7 +24,7 @@
       <img src="img/persona3/ganhou.png" alt="Personagem 3">
       <h3>Pocotó com Chifre</h3>
      
-      <input type="radio" name="persona" id="persona2" value="persona2">
+      <input type="radio" name="persona" id="persona3" value="persona3">
     </div>
   </div>
 
@@ -45,6 +45,7 @@
         botao.disabled = false;
         personagemEscolhido = radios[i].value
         console.log(personagemEscolhido)
+        
         return;
       }
     }
@@ -52,6 +53,7 @@
   }
 
   function jogar(){
+    localStorage.setItem('personagem',personagemEscolhido)
     location.href= 'jogo.html'
   }
 
@@ -59,6 +61,6 @@
     radios[i].addEventListener("change", verificarSelecao);
   }
 
-  localStorage.setItem('personagem',personagemEscolhido)
+  
 </script>
 </html>

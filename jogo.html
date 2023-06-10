@@ -249,7 +249,7 @@ margin-bottom: 10px;
         </div>
         <div class="d-flex" id="container_tentativas">
           <div class="d-flex justify-content-around">
-            <img class="m-6" src="img/react/react_default.png" alt="" id="reacao" width="100">
+            <img class="m-6" alt="" id="reacao" width="100">
             <div class="div-tentativas ">
               <p class="mt-4 d-flex justify-content-center">Tentativas restantes: <span id="tentativas"> 5</span></p>
             </div>
@@ -299,6 +299,10 @@ margin-bottom: 10px;
   </body>
 </html>
 <script>
+  const personagem = localStorage.getItem('personagem')
+  console.log(personagem)
+
+ 
   const imagens = [
   {
     url: "img/img6.png",
@@ -336,6 +340,9 @@ margin-bottom: 10px;
   const pontuacaoSpan = document.getElementById('pontuacao');
   var loadingGif = document.getElementById('load_icon');
 
+
+  reacaoImg.src =  `img/${personagem}/persona.png`
+
   let imagemAtualizada = document.getElementById("imagemAtualizada");
   let tempoExibicao = 1500;
 
@@ -368,7 +375,7 @@ margin-bottom: 10px;
       imagemAtual = imagensDisponiveis[indiceAleatorio];
       imagem.src = imagemAtual.url;
     } else {
-      reacaoImg.src = 'img/react/react_wow.png'
+      reacaoImg.src = `img/${personagem}/ganhou.png`
       Swal.fire({
         title: 'Incrível!! Você adivinhou todas as imagens!',
         text: "Deseja voltar para página Inicial?",
@@ -421,7 +428,7 @@ margin-bottom: 10px;
         tentativasRestantes--;
       }
       if (tentativasRestantes == 0) {
-        reacaoImg.src = 'img/react/react_dead.png'
+        reacaoImg.src = `img/${personagem}/perdeu.png`
         swalWithBootstrapButtons.fire({
           title: `Ops, tentativas esgotadas!`,
           text: `Sua pontuação foi:  ${pontuacao} acerto(s)`,
@@ -440,11 +447,11 @@ margin-bottom: 10px;
         palpiteInput.disabled = true;
         verificarBtn.style.display = "none";
       } else {
-        reacaoImg.src = 'img/react/react_ops.png'
+        reacaoImg.src = `img/${personagem}/tentativa3.png`
         if(tentativasRestantes==1){
-          reacaoImg.src = 'img/react/react_noo.png'
+          reacaoImg.src = `img/${personagem}/tentativa4.png`
         }else if(tentativasRestantes== 3 ){
-          reacaoImg.src = 'img/react/react_hm.png'
+          reacaoImg.src = `img/${personagem}/tentativa5.png`
         }
         tentativasSpan.innerText = tentativasRestantes;
         pontuacaoSpan.innerHTML = pontuacao;
